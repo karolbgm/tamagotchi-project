@@ -46,3 +46,16 @@ function checkMetrics() {
         return 'Your pet died!'
     }
 }
+
+const feedBtn = document.querySelector('#feed')
+feedBtn.addEventListener('click', function(e){
+  feeding();
+})
+const lightsBtn = document.querySelector('#lightsOff')
+lightsBtn.addEventListener('click', function(e){
+  sleeping();
+})
+const playBtn = document.querySelector('#play')
+playBtn.addEventListener('click', function(e){
+  playing();
+})
