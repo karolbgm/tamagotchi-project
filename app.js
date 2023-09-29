@@ -3,5 +3,9 @@ class Tamagotchi{
       this.name = name;
       this.age = age;
       this.hunger = hunger;
+      this.sleepiness = sleepiness;
+      this.boredom = boredom;
     }
 }
+
+const myTamagotchi = new Tamagotchi("bubble")
