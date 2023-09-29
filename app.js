@@ -39,6 +39,16 @@ class Tamagotchi {
 
 const myTamagotchi = new Tamagotchi("bubble")
 
+setInterval(function(){
+    hunger()
+    sleepiness()
+  }, 30000)
+  
+  setInterval(function(){
+    aging();
+    boredom();
+  }, 60000)
+
 function checkMetrics() {
     if ((this.hunger === 10) ||
         (this.boredom === 10) ||
