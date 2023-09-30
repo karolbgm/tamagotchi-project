@@ -52,12 +52,12 @@ function updateMetrics(obj) {
 }
 const myTamagotchi = new Tamagotchi("bubble")
 
-setInterval(function(){
+const interval1 = setInterval(function(){
     myTamagotchi.getHungry()
     myTamagotchi.getSleepy()
   }, 20000)
 
-setInterval(function(){
+const interval2 = setInterval(function(){
     myTamagotchi.aging();
     myTamagotchi.getBored();
   }, 30000)
@@ -67,6 +67,8 @@ setInterval(function(){
         (obj.boredom === 10) ||
         (obj.sleepiness === 10)) {
         alert('Your pet died!')
+        clearInterval(interval1)
+        clearInterval(interval2)
     }
 }
 
