@@ -7,65 +7,74 @@ class Tamagotchi {
         this.boredom = boredom;
     }
     feeding() {
-        return this.hunger - 1
-        checkMetrics()
+        this.hunger = this.hunger - 1
+        updateMetrics(this)
+        checkMetrics(this)
     }
     playing() {
-        return this.boredom - 1
-        checkMetrics()
+        this.boredom = this.boredom - 1
+        updateMetrics(this)
+        checkMetrics(this)
     }
     sleeping() {
-        return this.sleepiness - 1
-        checkMetrics()
+        this.sleepiness = this.sleepiness - 1
+        updateMetrics(this)
+        checkMetrics(this)
     }
     aging() {
-        return this.age + 1
-        checkMetrics()
+        this.age = this.age + 1
+        updateMetrics(this)
+        checkMetrics(this)
     }
-    hunger() {
-        return this.hunger + 1
-        checkMetrics()
+    getHungry() {
+        this.hunger = this.hunger + 1
+        updateMetrics(this)
+        checkMetrics(this)
     }
-    boredom() {
-        return this.boredom + 1
-        checkMetrics()
+    getBored() {
+        this.boredom = this.boredom + 1
+        updateMetrics(this)
+        checkMetrics(this)
     }
-    sleepiness() {
-        return this.sleepiness + 1
-        checkMetrics()
+    getSleepy() {
+        this.sleepiness = this.sleepiness + 1
+        updateMetrics(this)
+        checkMetrics(this)
     }
 
 }
 
+function updateMetrics(obj) {
+    document.querySelector('#age').innerHTML = `Age: ${obj.age}`;
+    document.querySelector('#hunger').innerHTML = `Hunger: ${obj.hunger}`;
+    document.querySelector('#sleepiness').innerHTML = `Sleepiness: ${obj.sleepiness}`;
+    document.querySelector('#boredom').innerHTML = `Boredom: ${obj.boredom}`;
+}
 const myTamagotchi = new Tamagotchi("bubble")
 
 setInterval(function(){
-    hunger()
-    sleepiness()
-  }, 30000)
-  
-  setInterval(function(){
-    aging();
-    boredom();
-  }, 60000)
+    myTamagotchi.getHungry()
+    myTamagotchi.getSleepy()
+  }, 20000)
 
-function checkMetrics() {
-    if ((this.hunger === 10) ||
-        (this.boredom === 10) ||
-        (this.sleepiness === 10)) {
-        return 'Your pet died!'
+setInterval(function(){
+    myTamagotchi.aging();
+    myTamagotchi.getBored();
+  }, 30000)
+
+  function checkMetrics(obj) {
+    if ((obj.hunger === 10) ||
+        (obj.boredom === 10) ||
+        (obj.sleepiness === 10)) {
+        alert('Your pet died!')
     }
 }
 
 const feedBtn = document.querySelector('#feed')
-feedBtn.addEventListener('click', function(e){
-  feeding();
-})
+feedBtn.addEventListener('click', () => myTamagotchi.feeding());
+
 const lightsBtn = document.querySelector('#lightsOff')
-lightsBtn.addEventListener('click', function(e){
-  sleeping();
-})
+lightsBtn.addEventListener('click', () => myTamagotchi.sleeping());
+
 const playBtn = document.querySelector('#play')
-playBtn.addEventListener('click', function(e){
-  playing();
-})
+playBtn.addEventListener('click', () => myTamagotchi.playing());
