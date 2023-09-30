@@ -5,24 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tamagotchi Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
 </head>
 
 <body>
-    <button id="start">Start</button>
-    
-    <label for="petName">Choose your Tamagotchi Name:</label>
-    <input type="text" id="petName" />
-    
-    <button id='feed'>Feed</button>
-    <button id='lightsOff'>Turn off lights</button>
-    <button id='play'>Play</button>
-    <div>Hunger: </div>
-    <div>Sleepiness: </div>
-    <div>Boredom: </div>
-    <div>Age: </div>
-    
+<h1>TAMAGOTCHI GAME</h1>
+    <form action="/tamagotchi" id="startGame">
+        <label for="petName">Type your Tamagotchi Name:</label>
+        <input type="text" id="petName" />
+        <button>START</button>
+    </form>
+    <div id="control">
+    <button id='feed' disabled>FEED</button>
+    <button id='lightsOff' disabled>TURN OFF LIGHTS</button>
+    <button id='play' disabled>PLAY</button>
+    </div>
+    <div>
+        <p id="age">Age: 0</p>
+        <p id="hunger">Hunger: 1</p>
+        <p id="sleepiness">Sleepiness: 1</p>
+        <p id="boredom">Boredom: 1</p>
+        <img src="img/gif2.gif" alt="">
+    </div>
+
 </body>
 
 </html>

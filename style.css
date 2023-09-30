@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('img/newimg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    font-family: 'Press Start 2P', cursive;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* p{
+    font-family:'Bubblegum Sans', cursive;;
+} */
+
+/* h1{
+    font-family: 'Press Start 2P', cursive;
+} */
+
+h1{
+    text-align: center;
+    text-shadow: #FC0 1px 0 10px;
+    font-size: 5em;
+}
+
+button{
+    border-radius: 30px;
+    width: 150px;
+    padding: 10px;
+}
+
+/* #control{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+} */
