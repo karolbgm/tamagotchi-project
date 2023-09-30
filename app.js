@@ -70,6 +70,14 @@ setInterval(function(){
     }
 }
 
+const startBtn = document.querySelector('#startGame');
+startBtn.addEventListener('submit', function(e){
+    e.preventDefault();
+    feedBtn.disabled = false;
+    lightsBtn.disabled = false;
+    playBtn.disabled = false;
+})
+
 const feedBtn = document.querySelector('#feed')
 feedBtn.addEventListener('click', () => myTamagotchi.feeding());
 
