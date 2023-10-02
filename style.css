@@ -1,4 +1,6 @@
 body {
+    padding: 0;
+    margin: 0;
     width: 100vw;
     height: 100vh;
     background-image: url('img/newimg.jpg');
@@ -9,13 +11,15 @@ body {
 
 img {
     display: block;
+    /* position: relative; */
     margin-left: 350px;
+    height: 400px;
 }
 
 #container{
     margin: auto;
-    margin-top: 200px;
-    margin-left: 1000px;
+    /* margin-top: 200px;
+    margin-left: 100px; */
     font-family:'Bangers', cursive;
     font-size: 2.2em;
     background-color: rgba(255, 255, 255, 0.747);

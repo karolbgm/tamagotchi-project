@@ -1,47 +1,73 @@
-class Tamagotchi {
-    constructor(name, age = 0, hunger = 1, sleepiness = 1, boredom = 1) {
-        this.name = name;
-        this.age = age;
-        this.hunger = hunger;
-        this.sleepiness = sleepiness;
-        this.boredom = boredom;
-    }
-    feeding() {
-        this.hunger = this.hunger - 1
+// class Tamagotchi {
+//     constructor(name, age = 0, hunger = 1, sleepiness = 1, boredom = 1) {
+//         this.name = name;
+//         this.age = age;
+//         this.hunger = hunger;
+//         this.sleepiness = sleepiness;
+//         this.boredom = boredom;
+//     }
+//     feeding() {
+//         this.hunger = this.hunger - 1
         
-    }
-    playing() {
-        this.boredom = this.boredom - 1
+//     }
+//     playing() {
+//         this.boredom = this.boredom - 1
         
-    }
-    sleeping() {
-        this.sleepiness = this.sleepiness - 1
+//     }
+//     sleeping() {
+//         this.sleepiness = this.sleepiness - 1
         
-    }
-    aging() {
-        this.age = this.age + 1
+//     }
+//     aging() {
+//         this.age = this.age + 1
         
-    }
-    getHungry() {
-        this.hunger = this.hunger + 1
+//     }
+//     getHungry() {
+//         this.hunger = this.hunger + 1
         
-    }
-    getBored() {
-        this.boredom = this.boredom + 1
+//     }
+//     getBored() {
+//         this.boredom = this.boredom + 1
         
-    }
-    getSleepy() {
-        this.sleepiness = this.sleepiness + 1
+//     }
+//     getSleepy() {
+//         this.sleepiness = this.sleepiness + 1
         
-    }
+//     }
 
+// }
+
+// const myTamagotchi = new Tamagotchi("bubble")
+
+const tamagotchi = {
+    age: 0
 }
-
-const myTamagotchi = new Tamagotchi("bubble")
 
 const progressBar1 = document.querySelector('#hunger');
 const progressBar2 = document.querySelector('#sleep');
 const progressBar3 = document.querySelector('#bored');
+
+const ageInterval = setInterval(function() {
+    tamagotchi.age++;
+    const age = document.querySelector('#age');
+    const pet = document.querySelector('#petImg');
+    age.innerHTML = `Age: ${tamagotchi.age}`;
+    if (tamagotchi.age >= 4) {
+        pet.src = 'img/gif3.gif';
+    } else if (tamagotchi.age >= 2) {
+        pet.src = 'img/gif2.gif';
+    }
+    // aging();
+}, 3000);
+
+// function aging(){
+//     const pet = document.querySelector('#a')
+//     if (tamagotchi.age >= 2){
+//         pet.src = 'img/gif2.gif'
+//     } else if (tamagotchi.age >= 4){
+//         pet.src = 'img/gif3.gif'
+//     }
+// }
 
 const interval1 = setInterval(function(){
     progressBar1.value++;
@@ -62,6 +88,7 @@ const interval2 = setInterval(function(){
         alert('Your pet died!')
         clearInterval(interval1)
         clearInterval(interval2)
+        clearInterval(ageInterval)
     }
 }
 
