@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Tamagotchi Project</title>
+    <link rel="stylesheet" href="landing-style.css">
+</head>
+
+<body>
+    <h1>TAMAGOTCHI GAME</h1>
+    <div id="container">
+        <h2>Welcome to Tamagotchi!</h2>
+        <p>Your Tamagotchi needs your care and attention.</p>
+        <p>Feed it, play with it, and make sure it's happy!</p>
+        <br>
+        <form action="/tamagotchi" id="startGame">
+            <label for="petName">Enter Tamagotchi Name:</label>
+            <br>
+            <br>
+            <input type="text" id="petName" placeholder="Type name here..." required />
+            <button>START</button>
+        </form>
+    </div>
+    <script>
+        // Add an event listener to the form submit event
+        document.getElementById("startGame").addEventListener("submit", function (event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Redirect to the main page (replace 'main.html' with your main page's URL)
+            window.location.href = "main.html";
+        });
+    </script>
+</body>
+
+</html>

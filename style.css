@@ -43,3 +43,22 @@ button{
     justify-content: flex-end;
     align-items: center;
 } */
+
+#metrics{
+    background-color: #FC0;
+    width: 200px;
+    height: 200px;
+}
+
+#control{
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+/* #main-div{
+    background-color: blue;
+} */
+
