@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>Tamagotchi Project</title>
     <link rel="stylesheet" href="landing-style.css">
+    <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -18,22 +19,33 @@
         <p>Your Tamagotchi needs your care and attention.</p>
         <p>Feed it, play with it, and make sure it's happy!</p>
         <br>
-        <form action="/tamagotchi" id="startGame">
+        <!-- <form action="/tamagotchi" id="startGame"> -->
             <label for="petName">Enter Tamagotchi Name:</label>
             <br>
             <br>
-            <input type="text" id="petName" placeholder="Type name here..." required />
-            <button>START</button>
-        </form>
+            <input type="text" id="petName" placeholder="Type name here..." required/>
+            <button id="startGame">START</button>
+        <!-- </form> -->
     </div>
     <script>
         // Add an event listener to the form submit event
-        document.getElementById("startGame").addEventListener("submit", function (event) {
+        
+        document.getElementById("startGame").addEventListener("click", function (event) {
             // Prevent the default form submission behavior
-            event.preventDefault();
+            // event.preventDefault();
+            const input = document.getElementById('petName');
+            if (input.value){
+                // Save tamaName to localStorage
+            // localStorage.setItem('tamaName', tamaName);
+                window.location.href = "main.html";
+
+            } else{
+                alert("Please enter a Tamagotchi name.");
+            }
+            
 
             // Redirect to the main page (replace 'main.html' with your main page's URL)
-            window.location.href = "main.html";
+            // window.location.href = "main.html";
         });
     </script>
 </body>

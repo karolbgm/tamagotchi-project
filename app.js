@@ -8,83 +8,141 @@ class Tamagotchi {
     }
     feeding() {
         this.hunger = this.hunger - 1
-        updateMetrics(this)
-        checkMetrics(this)
+        
     }
     playing() {
         this.boredom = this.boredom - 1
-        updateMetrics(this)
-        checkMetrics(this)
+        
     }
     sleeping() {
         this.sleepiness = this.sleepiness - 1
-        updateMetrics(this)
-        checkMetrics(this)
+        
     }
     aging() {
         this.age = this.age + 1
-        updateMetrics(this)
-        checkMetrics(this)
+        
     }
     getHungry() {
         this.hunger = this.hunger + 1
-        updateMetrics(this)
-        checkMetrics(this)
+        
     }
     getBored() {
         this.boredom = this.boredom + 1
-        updateMetrics(this)
-        checkMetrics(this)
+        
     }
     getSleepy() {
         this.sleepiness = this.sleepiness + 1
-        updateMetrics(this)
-        checkMetrics(this)
+        
     }
 
 }
 
-function updateMetrics(obj) {
-    document.querySelector('#age').innerHTML = `Age: ${obj.age}`;
-    document.querySelector('#hunger').innerHTML = `Hunger: ${obj.hunger}`;
-    document.querySelector('#sleepiness').innerHTML = `Sleepiness: ${obj.sleepiness}`;
-    document.querySelector('#boredom').innerHTML = `Boredom: ${obj.boredom}`;
-}
 const myTamagotchi = new Tamagotchi("bubble")
 
+const progressBar1 = document.querySelector('#hunger');
+const progressBar2 = document.querySelector('#sleep');
+const progressBar3 = document.querySelector('#bored');
+
 const interval1 = setInterval(function(){
-    myTamagotchi.getHungry()
-    myTamagotchi.getSleepy()
-  }, 20000)
+    progressBar1.value++;
+    progressBar2.value++;
+}, 2200)
 
 const interval2 = setInterval(function(){
-    myTamagotchi.aging();
-    myTamagotchi.getBored();
-  }, 30000)
+    progressBar3.value++;;
+  }, 2600)
 
-  function checkMetrics(obj) {
-    if ((obj.hunger === 10) ||
-        (obj.boredom === 10) ||
-        (obj.sleepiness === 10)) {
+  function checkMetrics() {
+    if((progressBar1.value === 10) ||
+    (progressBar2.value === 10) ||
+    (progressBar3.value ===10)){
+        feedBtn.disabled = true;
+        lightsBtn.disabled = true;
+        playBtn.disabled = true;
         alert('Your pet died!')
         clearInterval(interval1)
         clearInterval(interval2)
     }
 }
 
-const startBtn = document.querySelector('#startGame');
-startBtn.addEventListener('submit', function(e){
-    e.preventDefault();
-    feedBtn.disabled = false;
-    lightsBtn.disabled = false;
-    playBtn.disabled = false;
-})
+const feedBtn = document.querySelector('#feed');
+feedBtn.addEventListener('click', () => { 
+const progressBar = document.querySelector('#hunger');
+progressBar.value--;
+checkMetrics()
+});
 
-const feedBtn = document.querySelector('#feed')
-feedBtn.addEventListener('click', () => myTamagotchi.feeding());
+const lightsBtn = document.querySelector('#lightsOff');
+lightsBtn.addEventListener('click', () => { 
+const progressBar = document.querySelector('#sleep');
+progressBar.value--;
+checkMetrics()
+});
 
-const lightsBtn = document.querySelector('#lightsOff')
-lightsBtn.addEventListener('click', () => myTamagotchi.sleeping());
+const playBtn = document.querySelector('#play');
+playBtn.addEventListener('click', () => { 
+const progressBar = document.querySelector('#bored');
+progressBar.value--;
+checkMetrics()
+});
 
-const playBtn = document.querySelector('#play')
-playBtn.addEventListener('click', () => myTamagotchi.playing());
+// const inputName = document.querySelector('#petName')
+
+//  document.getElementById("startGame").addEventListener("click", function (event) {
+//     const tamaName = inputName.value;
+//     localStorage.setItem('tamaName', tamaName)
+//     // Redirect to the main page (replace 'main.html' with your main page's URL)
+//     window.location.href = "main.html";
+// });
+
+// if (tamaName){
+//     const tamagotchiName = document.getElementById("tamagotchiName");
+//     const petName = localStorage.getItem('tamaName')
+//     tamagotchiName.innerHTML = petName;
+// } 
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     // Your code here
+//     document.getElementById("startGame").addEventListener("click", function (event) {
+//         const inputName = document.querySelector('#petName');
+//         const tamaName = inputName.value;
+        
+//         if (tamaName) {
+//             // Save tamaName to localStorage
+//             localStorage.setItem('tamaName', tamaName);
+    
+//             // Redirect to the main page (replace 'main.html' with your main page's URL)
+//             window.location.href = "main.html";
+//         } else {
+//             alert("Please enter a Tamagotchi name.");
+//         }
+//     });
+    
+//     // Check tamaName and update tamagotchiName on the main page
+//     const tamaName = localStorage.getItem('tamaName');
+//     if (tamaName) {
+//         const tamagotchiName = document.getElementById("tamagotchiName");
+//         tamagotchiName.innerHTML = tamaName;
+//     }
+// });
+// document.getElementById("startGame").addEventListener("click", function (event) {
+//     const inputName = document.querySelector('#petName');
+//     const tamaName = inputName.value;
+    
+//     if (tamaName) {
+//         // Save tamaName to localStorage
+//         localStorage.setItem('tamaName', tamaName);
+
+//         // Redirect to the main page (replace 'main.html' with your main page's URL)
+//         window.location.href = "main.html";
+//     } else {
+//         alert("Please enter a Tamagotchi name.");
+//     }
+// });
+
+// // Check tamaName and update tamagotchiName on the main page
+// const tamaName = localStorage.getItem('tamaName');
+// if (tamaName) {
+//     const tamagotchiName = document.getElementById("tamagotchiName");
+//     tamagotchiName.innerHTML = tamaName;
+// }

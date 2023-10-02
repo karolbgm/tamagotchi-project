@@ -1,64 +1,32 @@
 body {
-    margin: 0;
-    padding: 0;
     width: 100vw;
     height: 100vh;
     background-image: url('img/newimg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
-    font-family: 'Press Start 2P', cursive;
 }
 
 img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-
+    margin-left: 350px;
 }
 
-/* p{
-    font-family:'Bubblegum Sans', cursive;;
-} */
-
-/* h1{
-    font-family: 'Press Start 2P', cursive;
-} */
-
-h1{
+#container{
+    margin: auto;
+    margin-top: 200px;
+    margin-left: 1000px;
+    font-family:'Bangers', cursive;
+    font-size: 2.2em;
+    background-color: rgba(255, 255, 255, 0.747);
+    width: 800px;
+    height: 300px;
     text-align: center;
-    text-shadow: #FC0 1px 0 10px;
-    font-size: 5em;
-}
+    border-radius: 30px;
+} 
 
 button{
     border-radius: 30px;
     width: 150px;
     padding: 10px;
 }
-
-/* #control{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-} */
-
-#metrics{
-    background-color: #FC0;
-    width: 200px;
-    height: 200px;
-}
-
-#control{
-    /* background-color: aqua; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-end;
-}
-
-/* #main-div{
-    background-color: blue;
-} */
-
