@@ -108,6 +108,8 @@ checkMetrics()
 
 const playBtn = document.querySelector('#play');
 playBtn.addEventListener('click', () => { 
+const theBody = document.querySelector('body')
+theBody.classList.toggle('play')   
 const progressBar = document.querySelector('#bored');
 progressBar.value--;
 checkMetrics()
