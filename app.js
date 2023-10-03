@@ -97,19 +97,43 @@ feedBtn.addEventListener('click', () => {
 const progressBar = document.querySelector('#hunger');
 progressBar.value--;
 checkMetrics()
+// Restore the original background image
+const body = document.body;
+  body.style.backgroundImage = 'url(img/newimg.jpg)';
 });
 
 const lightsBtn = document.querySelector('#lightsOff');
 lightsBtn.addEventListener('click', () => { 
+    const button1 = document.querySelector('#feed')
+    const button2 = document.querySelector('#play')
+    button1.disabled = true;
+    button2.disabled = true;
+const html = document.querySelector('html')
+html.classList.toggle('image-overlay')    
 const progressBar = document.querySelector('#sleep');
+clearInterval(interval1)
 progressBar.value--;
 checkMetrics()
+// Restore the original background image
+const body = document.body;
+  body.style.backgroundImage = 'url(img/newimg.jpg)';
 });
+
+// const lightsBtn = document.querySelector('#lightsOff');
+// lightsBtn.addEventListener('click', () => { 
+// const img = document.body.style.backgroundImage
+// img.opacity = 0.5;
+
+// progressBar.value--;
+// checkMetrics()
+// // Restore the original background image
+//   body.style.backgroundImage = 'url(img/newimg.jpg)';
+// });
 
 const playBtn = document.querySelector('#play');
 playBtn.addEventListener('click', () => { 
-const theBody = document.querySelector('body')
-theBody.classList.toggle('play')   
+const body = document.body
+body.style.backgroundImage = 'url(img/outsidef.jpg)' 
 const progressBar = document.querySelector('#bored');
 progressBar.value--;
 checkMetrics()
@@ -175,3 +199,4 @@ checkMetrics()
 //     const tamagotchiName = document.getElementById("tamagotchiName");
 //     tamagotchiName.innerHTML = tamaName;
 // }
+
