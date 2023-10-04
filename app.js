@@ -1,53 +1,52 @@
-// class Tamagotchi {
-//     constructor(name, age = 0, hunger = 1, sleepiness = 1, boredom = 1) {
-//         this.name = name;
-//         this.age = age;
-//         this.hunger = hunger;
-//         this.sleepiness = sleepiness;
-//         this.boredom = boredom;
-//     }
-//     feeding() {
-//         this.hunger = this.hunger - 1
-//     }
-//     playing() {
-//         this.boredom = this.boredom - 1
-//     }
-//     sleeping() {
-//         this.sleepiness = this.sleepiness - 1
-//     }
-//     aging() {
-//         this.age = this.age + 1
-//     }
-//     getHungry() {
-//         this.hunger = this.hunger + 1
-//     }
-//     getBored() {
-//         this.boredom = this.boredom + 1
-//     }
-//     getSleepy() {
-//         this.sleepiness = this.sleepiness + 1
-//     }
-// }
-// const myTamagotchi = new Tamagotchi("bubble")
-const tamagotchi = {
-    age: 0
+//Tamagotchi Project
+
+//First, created a Tamagotchi class with properties and methods
+class Tamagotchi {
+    constructor(name, age = 0, hunger = 0, sleepiness = progressBar2.value, boredom = 0) {
+        this.name = name;
+        this.age = age;
+        this.hunger = hunger;
+        this.sleepiness = sleepiness;
+        this.boredom = boredom;
+    }
+    feeding() {
+        progressBar1.value--;
+        this.hunger = progressBar1.value
+        checkMetrics()
+        // Restore the original background image
+        const body = document.body;
+        body.style.backgroundImage = 'url(img/newimg.jpg)';
+    }
+
+    playing(){
+    const body = document.body
+    body.style.backgroundImage = 'url(img/outsidef.jpg)'
+    progressBar3.value--;
+    this.boredom = progressBar1.value
+    checkMetrics()
+    }
+
 }
+
+let userTamagotchi
+
 const progressBar1 = document.querySelector('#hunger');
 const progressBar2 = document.querySelector('#sleep');
 const progressBar3 = document.querySelector('#bored');
+
 const ageInterval = setInterval(function () {
-    tamagotchi.age++;
+    userTamagotchi.age++;
     const age = document.querySelector('#age');
-    
-    age.innerHTML = `Age: ${tamagotchi.age}`;
-    
-    if (tamagotchi.age === 4) {
+
+    age.innerHTML = `Age: ${userTamagotchi.age}`;
+
+    if (userTamagotchi.age === 4) {
         alert(`${petName} is evolving!`)
         const pet = document.querySelector('.teen');
         pet.src = 'img/gif3.gif';
         pet.classList.remove('teen')
         pet.classList.add('adult')
-    } else if (tamagotchi.age === 2) {
+    } else if (userTamagotchi.age === 2) {
         alert(`${petName} is evolving!`)
         const pet = document.querySelector('.petImg');
         pet.src = 'img/gif2.gif';
@@ -106,11 +105,12 @@ function startAwakeInterval() {
 }
 const feedBtn = document.querySelector('#feed');
 feedBtn.addEventListener('click', () => {
-    progressBar1.value--;
-    checkMetrics()
-    // Restore the original background image
-    const body = document.body;
-    body.style.backgroundImage = 'url(img/newimg.jpg)';
+    userTamagotchi.feeding();
+    // progressBar1.value--;
+    // checkMetrics()
+    // // Restore the original background image
+    // const body = document.body;
+    // body.style.backgroundImage = 'url(img/newimg.jpg)';
 });
 const lightsBtn = document.querySelector('#lightsOff');
 lightsBtn.addEventListener('click', () => {
@@ -127,15 +127,16 @@ lightsBtn.addEventListener('click', () => {
 });
 const playBtn = document.querySelector('#play');
 playBtn.addEventListener('click', () => {
-    const body = document.body
-    body.style.backgroundImage = 'url(img/outsidef.jpg)'
-    progressBar3.value--;
-    checkMetrics()
+    userTamagotchi.playing();
+    // const body = document.body
+    // body.style.backgroundImage = 'url(img/outsidef.jpg)'
+    // progressBar3.value--;
+    // checkMetrics()
 });
 // // Check tamaName and update tamagotchiName on the main page
 const petName = localStorage.getItem('tamagotchiName');
 if (petName) {
+    userTamagotchi = new Tamagotchi(`${petName}`)
     const tamagotchi = document.getElementById("tamagotchi");
     tamagotchi.innerHTML = petName;
 }
-
