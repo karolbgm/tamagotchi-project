@@ -38,13 +38,20 @@ const progressBar3 = document.querySelector('#bored');
 const ageInterval = setInterval(function () {
     tamagotchi.age++;
     const age = document.querySelector('#age');
-    const pet = document.querySelector('.petImg');
+    
     age.innerHTML = `Age: ${tamagotchi.age}`;
-    if (tamagotchi.age >= 4) {
+    
+    if (tamagotchi.age === 4) {
+        alert(`${petName} is evolving!`)
+        const pet = document.querySelector('.teen');
         pet.src = 'img/gif3.gif';
+        pet.classList.remove('teen')
         pet.classList.add('adult')
-    } else if (tamagotchi.age >= 2) {
+    } else if (tamagotchi.age === 2) {
+        alert(`${petName} is evolving!`)
+        const pet = document.querySelector('.petImg');
         pet.src = 'img/gif2.gif';
+        pet.classList.remove('petImg')
         pet.classList.add('teen')
     }
 }, 3000);
@@ -64,6 +71,8 @@ function checkMetrics() {
         feedBtn.disabled = true;
         lightsBtn.disabled = true;
         playBtn.disabled = true;
+        const img = document.querySelector('img')
+        img.src = 'img/ghost.png';
         clearInterval(hungerInterval)
         clearInterval(awakeInterval)
         clearInterval(boredInterval)
@@ -131,3 +140,4 @@ if (petName) {
     const tamagotchi = document.getElementById("tamagotchi");
     tamagotchi.innerHTML = petName;
 }
+

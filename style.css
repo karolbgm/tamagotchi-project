@@ -29,7 +29,6 @@ body {
 
 img {
     display: block;
-    /* position: relative; */
     margin: auto;
     margin-top: 200px;
     height: 400px;
@@ -48,9 +47,13 @@ img {
 }
 
 button {
-    border-radius: 30px;
     width: 150px;
-    padding: 10px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: rgb(255, 242, 0);
+    font-size: 0.3em;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
 }
 
 /* body.image-overlay { */
@@ -129,4 +132,16 @@ padding: 0;
     100% {
         transform: translate(100px, 0);
     }
+}
+
+label, button{
+    display: inline;
+    margin: 5px;
+    vertical-align: middle;
+    
+
+}
+
+progress{
+    height: 40px;
 }
