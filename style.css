@@ -1,28 +1,19 @@
 /* body {
-    padding: 0;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('img/newimg.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
-    overflow: hidden;
-    position: relative;
-    z-index: 0;
+    background-size: 100% 100%; it will stretch instead of keeping the ratio
 } */
 body {
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('img/newimg.jpg'); /* Replace with your background image URL */
+    background-image: url('img/newimg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     overflow: hidden;
     position: relative;
-    z-index: 0; /* Set a lower z-index for the body background */
+    z-index: 0;
+    /* Set a lower z-index for the body background */
 }
 
 .play {
@@ -63,17 +54,16 @@ button {
 }
 
 /* body.image-overlay { */
-    /* position: absolute; */
-    /* Use fixed position to cover the entire viewport */
-    /* top: 0;
+/* position: absolute; */
+/* Use fixed position to cover the entire viewport */
+/* top: 0;
     left: 0;
     width: 100%;
     height: 100%; */
-    /* background-color: rgba(57, 57, 57, 0);  */
-    /* background-image: url('img/newimg.jpg'); */
-    /* z-index: 1; */
+/* background-color: rgba(57, 57, 57, 0);  */
+/* background-image: url('img/newimg.jpg'); */
+/* z-index: 1; */
 /* } */
-
 /* body.image-overlay{
 padding: 0;
     margin: 0;
@@ -85,11 +75,11 @@ padding: 0;
     background-size: 100% 100%;
     filter: brightness(10%);
 } */
-
-.image-overlay{
+.image-overlay {
     filter: brightness(50%);
-    backdrop-filter: blur(10px); 
-    width: 100vw;;
+    backdrop-filter: blur(10px);
+    width: 100vw;
+    ;
     height: 100vh;
     background: cover;
     position: static;
@@ -99,3 +89,44 @@ padding: 0;
 /* #noDisplay{
     visibility: hidden;
 } */
+.petImg {
+    animation: shake 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-30deg);
+    }
+
+    100% {
+        transform: rotate(30deg);
+    }
+}
+
+.teen {
+    animation-play-state: paused;
+}
+
+.adult {
+    animation: walk 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes walk {
+    0% {
+        transform: translate(100px, 0);
+    }
+
+    50% {
+        transform: translate(-100px, 0);
+    }
+
+    100% {
+        transform: translate(100px, 0);
+    }
+}
