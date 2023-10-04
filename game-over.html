@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gameover-style.css">
+</head>
+
+<body>
+    <div>
+        <p id="gameOver">GAME OVER</p>
+        <p id="message">Your tamagotchi died!</p>
+        <img src="img/ghost.png" alt="">
+        <br>
+        <button>RESTART</button>
+    </div>
+    <script>
+        document.querySelector('button').addEventListener("click", function (event) {
+            const input = document.getElementById('petName');
+            window.location.href = "index.html";
+        })
+    </script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-//class Tamagotchi {
+// class Tamagotchi {
 //     constructor(name, age = 0, hunger = 1, sleepiness = 1, boredom = 1) {
 //         this.name = name;
 //         this.age = age;
@@ -71,13 +71,11 @@ function checkMetrics() {
         feedBtn.disabled = true;
         lightsBtn.disabled = true;
         playBtn.disabled = true;
-        const img = document.querySelector('img')
-        img.src = 'img/ghost.png';
         clearInterval(hungerInterval)
         clearInterval(awakeInterval)
         clearInterval(boredInterval)
         clearInterval(ageInterval)
-        alert('Your pet died!')
+        window.location.href = "game-over.html";
     }
 }
 const html = document.querySelector('html');
