@@ -1,7 +1,7 @@
 //Tamagotchi Project
-
+//Tamagotchi class with properties and methods
 class Tamagotchi {
-    constructor(name, age = 0, hunger = 0, sleepiness = progressBar2.value, boredom = 0) {
+    constructor(name, age = 0, hunger = 0, sleepiness = 0, boredom = 0) {
         this.name = name;
         this.age = age;
         this.hunger = hunger;
@@ -17,11 +17,15 @@ class Tamagotchi {
         body.style.backgroundImage = 'url(img/newimg.jpg)';
     }
 
+    sleepiness() {
+        this.sleepiness = progressBar2.value;
+    }
+
     playing(){
     const body = document.body
     body.style.backgroundImage = 'url(img/outsidef.jpg)'
     progressBar3.value--;
-    this.boredom = progressBar1.value
+    this.boredom = progressBar3.value
     checkMetrics()
     }
 
@@ -33,6 +37,7 @@ const progressBar1 = document.querySelector('#hunger');
 const progressBar2 = document.querySelector('#sleep');
 const progressBar3 = document.querySelector('#bored');
 
+
 //Intervals
 const ageInterval = setInterval(function () {
     userTamagotchi.age++;
@@ -40,13 +45,13 @@ const ageInterval = setInterval(function () {
 
     age.innerHTML = `Age: ${userTamagotchi.age}`;
 
-    if (userTamagotchi.age === 4) {
+    if (userTamagotchi.age === 7) {
         alert(`${petName} is evolving!`)
         const pet = document.querySelector('.teen');
         pet.src = 'img/gif3.gif';
         pet.classList.remove('teen')
         pet.classList.add('adult')
-    } else if (userTamagotchi.age === 2) {
+    } else if (userTamagotchi.age === 3) {
         alert(`${petName} is evolving!`)
         const pet = document.querySelector('.petImg');
         pet.src = 'img/gif2.gif';

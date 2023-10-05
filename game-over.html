@@ -17,12 +17,16 @@
         <p id="message">Your tamagotchi died!</p>
         <img src="img/ghost.png" alt="">
         <br>
-        <button>RESTART</button>
+        <button id="restart">RESTART</button>
+        <button id="about">ABOUT</button>
     </div>
     <script>
         document.querySelector('button').addEventListener("click", function (event) {
             const input = document.getElementById('petName');
             window.location.href = "index.html";
+        })
+        document.querySelector('#about').addEventListener("click", function (event) {
+            window.location.href = "about.html";
         })
     </script>
 </body>
