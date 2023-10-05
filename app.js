@@ -1,6 +1,5 @@
 //Tamagotchi Project
 
-//First, created a Tamagotchi class with properties and methods
 class Tamagotchi {
     constructor(name, age = 0, hunger = 0, sleepiness = progressBar2.value, boredom = 0) {
         this.name = name;
@@ -34,6 +33,7 @@ const progressBar1 = document.querySelector('#hunger');
 const progressBar2 = document.querySelector('#sleep');
 const progressBar3 = document.querySelector('#bored');
 
+//Intervals
 const ageInterval = setInterval(function () {
     userTamagotchi.age++;
     const age = document.querySelector('#age');
@@ -63,6 +63,8 @@ let awakeInterval = setInterval(function () {
 const boredInterval = setInterval(function () {
     progressBar3.value++;
 }, 2600)
+
+//Checking my progress bars
 function checkMetrics() {
     if ((progressBar1.value === 10) ||
         (progressBar2.value === 10) ||
@@ -103,15 +105,13 @@ function startAwakeInterval() {
         progressBar2.value++;
     }, 2200);
 }
+
+//Event Listeners
 const feedBtn = document.querySelector('#feed');
 feedBtn.addEventListener('click', () => {
     userTamagotchi.feeding();
-    // progressBar1.value--;
-    // checkMetrics()
-    // // Restore the original background image
-    // const body = document.body;
-    // body.style.backgroundImage = 'url(img/newimg.jpg)';
 });
+
 const lightsBtn = document.querySelector('#lightsOff');
 lightsBtn.addEventListener('click', () => {
     // const html = document.querySelector('html');
@@ -121,18 +121,13 @@ lightsBtn.addEventListener('click', () => {
     body.style.backgroundImage = 'url(img/newimg.jpg)';
     runSleep()
     checkMetrics()
-    // Restore the original background image
-    // const body = document.body;
-    // body.style.backgroundImage = 'url(img/newimg.jpg)';
 });
 const playBtn = document.querySelector('#play');
 playBtn.addEventListener('click', () => {
     userTamagotchi.playing();
-    // const body = document.body
-    // body.style.backgroundImage = 'url(img/outsidef.jpg)'
-    // progressBar3.value--;
-    // checkMetrics()
 });
+
+
 // // Check tamaName and update tamagotchiName on the main page
 const petName = localStorage.getItem('tamagotchiName');
 if (petName) {
