@@ -14,7 +14,7 @@ class Tamagotchi {
         checkMetrics()
         // Restore the original background image
         const body = document.body;
-        body.style.backgroundImage = 'url(img/newimg.jpg)';
+        body.style.backgroundImage = 'url(img/newimg.jpg)'; 
     }
 
     sleepiness() {
@@ -31,19 +31,32 @@ class Tamagotchi {
 
 }
 
+//Declaring userTamagotchi variable that will create a new object using my Tamagotchi class with the name typed by user (later)
 let userTamagotchi
 
+// Creating new object with input value and updated tamagotchiName on the main page
+const petName = localStorage.getItem('tamagotchiName');
+if (petName) {
+    userTamagotchi = new Tamagotchi(`${petName}`)
+    const tamagotchi = document.getElementById("tamagotchi");
+    tamagotchi.innerHTML = petName;
+}
+
+//Selecting all progress bars
 const progressBar1 = document.querySelector('#hunger');
 const progressBar2 = document.querySelector('#sleep');
 const progressBar3 = document.querySelector('#bored');
 
 
-//Intervals
-const ageInterval = setInterval(function () {
-    userTamagotchi.age++;
-    const age = document.querySelector('#age');
+//Interval for each bar and for aging
 
-    age.innerHTML = `Age: ${userTamagotchi.age}`;
+//aging interval with evolution
+const ageInterval = setInterval(function () {
+
+    userTamagotchi.age++; //updates tamagotchi age
+    
+    const age = document.querySelector('#age');
+    age.innerHTML = `Age: ${userTamagotchi.age}`; //displays my age on main page
 
     if (userTamagotchi.age === 7) {
         alert(`${petName} is evolving!`)
@@ -59,17 +72,23 @@ const ageInterval = setInterval(function () {
         pet.classList.add('teen')
     }
 }, 3000);
+
+//hunger interval will increase my hunger bar 
 const hungerInterval = setInterval(function () {
     progressBar1.value++;
 }, 2200)
+
+//sleepiness interval will increase my sleepiness bar
 let awakeInterval = setInterval(function () {
     progressBar2.value++;
 }, 2200)
+
+//boredom interval will increase my boredom bar
 const boredInterval = setInterval(function () {
     progressBar3.value++;
 }, 2600)
 
-//Checking my progress bars
+//Checking my progress bars, if they reach 10, it will take me to game over page
 function checkMetrics() {
     if ((progressBar1.value === 10) ||
         (progressBar2.value === 10) ||
@@ -84,8 +103,10 @@ function checkMetrics() {
         window.location.href = "game-over.html";
     }
 }
+
+//Lights off/on function
 const html = document.querySelector('html');
-let sleepInterval; // Declare sleepInterval outside of the if block
+let sleepInterval; // Declared sleepInterval outside of the if block to be able to use it in my else scope
 function runSleep() {
     if (html.classList.contains('image-overlay')) {
         feedBtn.disabled = true;
@@ -99,13 +120,13 @@ function runSleep() {
         }, 1000);
     } else {
         clearInterval(sleepInterval); // Clear the interval if it exists
-        startAwakeInterval();
+        startAwakeInterval(); //calling a new awake interval since I cleared the previous one
         feedBtn.disabled = false;
         playBtn.disabled = false;
     }
 }
 function startAwakeInterval() {
-    clearInterval(awakeInterval);
+    // clearInterval(awakeInterval);
     awakeInterval = setInterval(function () {
         progressBar2.value++;
     }, 2200);
@@ -127,16 +148,9 @@ lightsBtn.addEventListener('click', () => {
     runSleep()
     checkMetrics()
 });
+
 const playBtn = document.querySelector('#play');
 playBtn.addEventListener('click', () => {
     userTamagotchi.playing();
 });
 
-
-// // Check tamaName and update tamagotchiName on the main page
-const petName = localStorage.getItem('tamagotchiName');
-if (petName) {
-    userTamagotchi = new Tamagotchi(`${petName}`)
-    const tamagotchi = document.getElementById("tamagotchi");
-    tamagotchi.innerHTML = petName;
-}
